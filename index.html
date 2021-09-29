@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>FarmaTalk Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -95,22 +95,6 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
             </a>
           </li>
         </ul>
@@ -316,7 +300,14 @@
                   <div class="card card-tale">
                     <div class="card-body">
                       <p class="mb-4">Products</p>
-                      <p class="fs-30 mb-2">4006</p>
+                      <p class="fs-30 mb-2" id='productsss'>
+                        <script>
+                          fetch('https://agrirwanda.eu-4.evennode.com/api/products').then((res) => res.json()).then((data) => {
+                            
+                            document.getElementById('productsss').textContent = data.data.length;
+                          })
+                        </script>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -324,7 +315,14 @@
                   <div class="card card-dark-blue">
                     <div class="card-body">
                       <p class="mb-4">Users</p>
-                      <p class="fs-30 mb-2">61344</p>
+                      <p class="fs-30 mb-2" id="userssss">
+                        <script>
+                          fetch('https://agrirwanda.eu-4.evennode.com/api/userss').then((res) => res.json()).then((data) => {
+                            const userssss = data.data.length;
+                            document.getElementById('userssss').textContent=userssss;
+                          })
+                        </script>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -334,15 +332,14 @@
                   <div class="card card-light-blue">
                     <div class="card-body">
                       <p class="mb-4">Forum Topics</p>
-                      <p class="fs-30 mb-2">34040</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Messages</p>
-                      <p class="fs-30 mb-2">47033</p>
+                      <p class="fs-30 mb-2" id="posts">
+                        <script>
+                          fetch('https://agrirwanda.eu-4.evennode.com/api/all_posts').then((res) => res.json()).then((data) => {
+                            
+                            document.getElementById('posts').textContent = data.data.length;
+                          })
+                        </script>
+                      </p>
                     </div>
                   </div>
                 </div>
